@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import SearchFilter from './components/SearchFilter'
+import { Routes, Route } from 'react-router-dom';
+import People from './components/People';
+import Planets from './components/Planets';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='mb-5'>
+      <header className='d-flex justify-content-center'>
+        <h1>
+          Luke APIwalker
+        </h1>
       </header>
+      <SearchFilter/>
+      <Routes>
+        <Route path='/people/:id' element={<People/>} />
+        <Route path='/planets/:id' element={<Planets/>} />
+      </Routes>
     </div>
   );
 }
